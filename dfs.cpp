@@ -20,6 +20,7 @@ void dfs(int node, int par, int d) {
 // dfs(root, -1, 0);
 
 // dfs for tree 
+vector<int> adj[N + 1];
 int parent[N + 1];
 int depth[N + 1];
 
