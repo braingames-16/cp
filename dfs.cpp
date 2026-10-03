@@ -40,6 +40,8 @@ void dfs(int node, int par, int d) {
 // N of order 10^6 then use iterative dfs
 
 // basic template
+vector<int> adj[N + 1];
+bool visited[N + 1];
 vector<int> order;
 stack<int> st;
 st.push(start);
