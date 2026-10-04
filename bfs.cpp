@@ -24,3 +24,36 @@ void bfs(int start) {
         }
     }
 }
+
+//multi-sourced bfs
+vector<int> adj[N + 1];
+bool visited[N + 1];
+int dist[N + 1];
+
+void multi_source_bfs(vector<int>& sources) {
+    queue<int> q;
+
+    // Push all sources onto the queue with distance 0.
+    // The !visited[s] guard keeps a duplicate in `sources` from
+    // being pushed twice.
+    for (int s : sources) {
+        if (!visited[s]) {
+            visited[s] = true;
+            dist[s] = 0;
+            q.push(s);
+        }
+    }
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+
+        for (int neighbor : adj[node]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                dist[neighbor] = dist[node] + 1;
+                q.push(neighbor);
+            }
+        }
+    }
+}
