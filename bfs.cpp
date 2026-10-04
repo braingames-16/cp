@@ -34,8 +34,6 @@ void multi_source_bfs(vector<int>& sources) {
     queue<int> q;
 
     // Push all sources onto the queue with distance 0.
-    // The !visited[s] guard keeps a duplicate in `sources` from
-    // being pushed twice.
     for (int s : sources) {
         if (!visited[s]) {
             visited[s] = true;
