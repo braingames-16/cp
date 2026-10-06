@@ -37,6 +37,25 @@ void dfs(int node, int par, int d) {
     }
 }
 
+//recursive dfs for grids
+int n, m;
+vector<string> grid;
+vector<vector<bool>> visited;
+
+int dx[] = {-1, 1, 0, 0};
+int dy[] = {0, 0, -1, 1};
+
+void dfs(int x, int y) {
+    visited[x][y] = true;
+    for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+        if (grid[nx][ny] == '#' || visited[nx][ny]) continue;
+        dfs(nx, ny);
+    }
+}
+
 // N of order 10^6 then use iterative dfs
 
 // basic template
