@@ -55,3 +55,34 @@ int count_regions() {
     }
     return regions;
 }
+
+// eight directions (including diagonals
+int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+// knight move in chess
+int dx[] = {-2, -2, -1, -1, 1, 1, 2, 2};
+int dy[] = {-1, 1, -2, 2, -2, 2, -1, 1};
+
+//diagonals only movement(bishop)
+int dx[] = {-1, -1, 1, 1};
+int dy[] = {-1, 1, -1, 1};
+
+// flood fill in 2d grid
+int n, m;
+vector<vector<int>> grid;
+int old_color, new_color;
+
+int dx[] = {-1, 1, 0, 0};
+int dy[] = {0, 0, -1, 1};
+
+void flood_fill(int x, int y) {
+    if (grid[x][y] != old_color) return;
+    grid[x][y] = new_color;
+    for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+        flood_fill(nx, ny);
+    }
+}
