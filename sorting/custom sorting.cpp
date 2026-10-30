@@ -1,5 +1,5 @@
 //custom sorting comparator that sorts based on pair.second basis in ascending order
-
+//tc = O(n*logn*(time take for each comparison))
 struct cmp{
     // the bool should return true if a is to be placed before b
     bool operator()(pair<int,int> a, pair<int,int> b){
